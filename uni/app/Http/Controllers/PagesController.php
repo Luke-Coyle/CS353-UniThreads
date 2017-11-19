@@ -10,7 +10,7 @@ class PagesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except'=>['welcome']] );
+        $this->middleware('auth', ['except'=>['welcome']]);
     }
 
     public function welcome()
@@ -22,7 +22,6 @@ class PagesController extends Controller
     {
         return view('pages.login');
     }
-
 
     public function subjects()
     {
@@ -51,8 +50,13 @@ class PagesController extends Controller
 
 
     public function cs210()
-    {
-        return view('mods.cs210');
+    {   
+        
+       // $name = User::where('user_id',$user_id)->get('name');
+       $user_id = auth()->user()->id;
+       $user=User::find($user_id);
+
+        return view('mods.cs210')->with('user', $user);
     }
 
     public function cs320()
@@ -100,4 +104,10 @@ class PagesController extends Controller
         $user=User::find($user_id);
         return view('pages.profile')->with('posts', $user->posts);
     }
+    public function home()
+    {   $user_id = auth()->user()->id;
+        $user=User::find($user_id);
+        return view('home')->with('posts', $user->posts);
+    }
+    
 }

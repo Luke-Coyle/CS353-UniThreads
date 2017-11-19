@@ -1,12 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\User;
-use DB;
+use App\Admin;
 use Illuminate\Http\Request;
 
-
-class HomeController extends Controller
+class AdminController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -15,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth:admin');
     }
 
     /**
@@ -23,11 +21,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() //PROBLEM CODE
     {
-        $user_id = auth()->user()->id;
-        $user=User::find($user_id);
-        return view('home')->with('posts', $user->posts);
-        
+        //$admin_id = auth()->user()->id;
+       // $admin=Admin::find($admin_id);
+        return view('admin');//->with('posts', $user->posts);
+       
     }
 }
