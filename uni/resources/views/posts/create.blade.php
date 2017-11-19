@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('stylesheets')
+
+    {{!! Html::style('css/parsley.css') !!}}
+
+@endsection
+
 @section('content')
 <head>
 <title>UNI-Threads</title>
@@ -29,5 +35,12 @@
 </div>
 
 
+
+@endsection
+
+
+@section('scripts')
+
+    {{!! Html::style('js/parsley.min.js') !!}}
 
 @endsection
