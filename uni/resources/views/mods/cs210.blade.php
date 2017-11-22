@@ -31,8 +31,9 @@
 				</div>
 
 				<div class="col-md-4 col-sm-4">
-						<a href="/posts/{{$post->id}}">{{$post->title}}</a> 
-						<small>Written on {{$post->created_at}}</small>
+						<a href="/posts/{{$post->id}}">{{$post->title}}</a>   <!--Where is this $post coming from? Not from PagesController@cs210-->
+						<hr><small>Written on {{$post->created_at}}</small>	<!--Where is this $post coming from? Not from PagesController@cs210-->
+						<small><strong>By {{$post->created_at}}</strong></small>
 				</div>	
 			</div>
 		</div>
