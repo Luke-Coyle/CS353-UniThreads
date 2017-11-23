@@ -1,4 +1,6 @@
 <?php
+use Illuminate\Support\Facades\Input;
+use App\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,9 +37,14 @@ Route::get('/mt103', 'PostsController@mt103');
 Route::get('/mt201', 'PostsController@mt201');
 Route::get('/mt212', 'PostsController@mt212');
 
+Route::get('/home', 'PagesController@profile');
+
 Route::resource('posts','PostsController'); //Namespaced under posts url   -- posts/create--- posts/update --- etc
 
 Auth::routes();
+
+Route::resource('comments', 'CommentsController');
+Route::post('comments/{post_id}', ['uses' => 'CommentsController@store', 'as' => 'comments.store']);
 
 
 
@@ -79,3 +86,10 @@ Route::prefix('admin')->group(function(){
   Route::get('/password/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
 });
 
+Route::any('/search',function(){
+  $q = Input::get ( 'q' );
+  $posts = Post::where('title','LIKE','%'.$q.'%')->orWhere('body','LIKE','%'.$q.'%')->orWhere('module','LIKE','%'.$q.'%')->get();
+  if(count($posts) > 0)
+      return view('results')->withDetails($posts)->withQuery ( $q );
+  else return view ('results')->withMessage('No Details found. Try to search again !');
+});

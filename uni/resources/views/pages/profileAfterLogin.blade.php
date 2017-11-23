@@ -11,6 +11,8 @@
 		</form>
 </div>
 
+
+
 <div id="content">
 	
 	<p>Your previous posts and questions.</p>
@@ -34,6 +36,36 @@
 			</tr>
 		@endforeach
 	</table>
+@else
+<p> You have no posts </p>
+
+@endif
+
+@if(count($comments)>0)
+	<table class="table table-striped">
+		<tr>
+			<td>Comments</td>
+			<td></td>
+			<td></td>
+		</tr>
+		@foreach($comments as $comment)
+		
+			<tr>
+				<td><a href="/posts/{{$comment->post_id}}">{!!$comment->body!!}</a></td>
+				<td><a href="/comments/{{$comment->id}}/edit" class="btn btn-default">Edit</a></td>
+				<td>
+						
+						<a href="/posts/{{$comment->post_id}}">{{$comment->post->title}}</a>
+						
+				<td>
+				
+
+			</tr>
+		
+		@endforeach
+	</table>
+
+	
 @else
 <p> You have no posts </p>
 

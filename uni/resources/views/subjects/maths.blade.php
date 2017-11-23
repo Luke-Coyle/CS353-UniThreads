@@ -7,10 +7,17 @@
 <div>
 		<h1>Maths</h1>
         <a href="/subjects">Go Back to Subjects</a>
-		<form>
-			<i class="icon-search"></i>
-			<input type="text" name="search" placeholder="Search Module Code.."> <!-- Module search bar -->
-		</form>
+				<form action="/search" method="POST" role="search">
+    {{ csrf_field() }}
+    <div class="input-group">
+        <input type="text" class="form-control" name="q"
+            placeholder="Search posts"> <span class="input-group-btn">
+            <button type="submit" class="btn btn-default">
+             <span> Search </span>	
+            </button>
+        </span>
+    </div>
+</form>
 </div>
 
 <div id="content">

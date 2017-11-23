@@ -4,10 +4,9 @@
 <head>
 <title>UNI-Threads</title>
 </head>
-<div>
-		<h1>EN260: Classic Literature</h1>
-        <a href="/english">Go Back to English</a>
-		<form action="/search" method="POST" role="search">
+<a href="/profile"> My Profile </a><a href="/subjects"> Back to Subjects</a>
+
+				<form action="/search" method="POST" role="search">
     {{ csrf_field() }}
     <div class="input-group">
         <input type="text" class="form-control" name="q"
@@ -18,17 +17,22 @@
         </span>
     </div>
 </form>
+
+<div>
+		<h1>Search Results for <b>{{$query}} </b> :</h1>
+        
+
 				<hr>
 
-		<a href='/posts/create' class='btn btn-default'> Create post</a>
-</div>
-<h1>Post List, Have something to share? Share it here!</h1>
-<div id="content">
-		<hr>
-		@if(count($posts)>0)
-	@foreach($posts as $post)
 
-			<div class="well">
+</div>
+
+<div id="content">
+	
+		<hr>
+		@if(isset($details))
+	@foreach($details as $post)
+		<div class="well">
 			<div class="row">
 				<div class="col-md-4 col-sm-4">
 					<img style="width:100%" src="/storage/files/{{$post->files}}">
@@ -44,7 +48,6 @@
 @else
 	<p>no posts</p>
 @endif
-	
 
 </div>
 </body>

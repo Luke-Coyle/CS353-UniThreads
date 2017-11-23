@@ -7,10 +7,17 @@
 <div>
 		<h1>CS210: Data Structures & Algorithms</h1>
         <a href="/computerscience">Go Back to Computer Science</a>
-		<form>
-			<i class="icon-search"></i>
-			<input type="text" name="search" placeholder="Search Module Code.."> <!-- Module search bar -->
-		</form>
+		<form action="/search" method="POST" role="search">
+    {{ csrf_field() }}
+    <div class="input-group">
+        <input type="text" class="form-control" name="q"
+            placeholder="Search posts"> <span class="input-group-btn">
+            <button type="submit" class="btn btn-default">
+             <span> Search </span>	
+            </button>
+        </span>
+    </div>
+</form>
 
 		<hr>
 
@@ -27,7 +34,7 @@
 		<div class="well">
 			<div class="row">
 				<div class="col-md-4 col-sm-4">
-					<img style="width:100%" src="/storage/files/{{$post->files}}">
+					<img style="width:50%" src="/storage/files/{{$post->files}}">
 				</div>
 
 				<div class="col-md-4 col-sm-4">

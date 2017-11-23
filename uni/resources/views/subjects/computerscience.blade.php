@@ -7,11 +7,17 @@
 <div>
 		<h1>Computer Science</h1>
         <a href="/subjects">Go Back to Subjects</a>
-		<form method="post" action="search.php?go" id="searchform">
-			<i class="icon-search"></i>
-			<input type="text" name="search" placeholder="Search Module Code.."> <!-- Module search bar -->
-			<input type="submit" name=submit value=Search>
-		</form>
+				<form action="/search" method="POST" role="search">
+    {{ csrf_field() }}
+    <div class="input-group">
+        <input type="text" class="form-control" name="q"
+            placeholder="Search posts"> <span class="input-group-btn">
+            <button type="submit" class="btn btn-default">
+             <span> Search </span>	
+            </button>
+        </span>
+    </div>
+</form>
 </div>
 
 <div id="content">

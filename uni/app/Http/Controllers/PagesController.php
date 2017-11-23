@@ -8,6 +8,7 @@ use App\Post;
 class PagesController extends Controller
 
 {
+
     public function __construct()
     {
         $this->middleware('auth', ['except'=>['welcome']]);
@@ -102,12 +103,12 @@ class PagesController extends Controller
     public function profile()
     {   $user_id = auth()->user()->id;
         $user=User::find($user_id);
-        return view('pages.profile')->with('posts', $user->posts);
+        return view('pages.profile')->with('posts', $user->posts)->with('comments', $user->comments);
     }
     public function home()
     {   $user_id = auth()->user()->id;
         $user=User::find($user_id);
-        return view('home')->with('posts', $user->posts);
+        return view('pages.profile')->with('posts', $user->posts)->with('comments', $user->comments);
     }
     
 }
