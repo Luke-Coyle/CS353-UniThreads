@@ -3,16 +3,10 @@
 @section('content')
 <head>
 <title>UNI-Threads</title>
-
-<script>
-function myFunction() {
-    $request->session()->put('module', 'cs210');
-}
-</script>
 </head>
 <div>
-		<h1>CS210: Data Structures & Algorithms</h1>
-        <a href="/computerscience">Go Back to Computer Science</a>
+		<h1>{{<ModuleCode: Module}}</h1>
+        <a href="/{{subject}}">Go Back to {{Subject}}</a>
 		<form>
 			<i class="icon-search"></i>
 			<input type="text" name="search" placeholder="Search Module Code.."> <!-- Module search bar -->
@@ -20,15 +14,14 @@ function myFunction() {
 
 		<hr>
 
-		<!--<a href='/posts/create' class='btn btn-default'>Create post</a>-->
-		<input onlick = "myFunction()" type="button" onclick="location.href='http://uni.dev/posts/create';" value="Create Post" />
+		<a href='/posts/create' class='btn btn-default'> Create post</a>
 			
 </div>
 
 <h1>Post List, Have something to share? Share it here!</h1>
 
 <div id="content">
-<hr>
+		<hr>
 @if(count($posts)>0)
 	@foreach($posts as $post)
 		<div class="well">
@@ -52,4 +45,4 @@ function myFunction() {
 
 		</div>
 		</body>
-		@endsection
+@endsection

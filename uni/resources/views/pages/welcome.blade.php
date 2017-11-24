@@ -18,11 +18,17 @@
                 <h1>Welcome to Uni-Threads!</h1>  <!-- I imagine we would want both of these lines centered for this page -->
                 <h3>A private forum for university students to learn from and help each other<h3>
             </div>
-            
+            @if(Auth::guest())
             <div id = "buttons">
                 <a href="/register">Sign Up</a> <a href="/login">Log in</a> <!-- These buttons need to be styled. -->
             </div>
+            @endif
             <!-- I'm going to leave it to dallen or ela to format the page so the buttons appear separate from the proceeding line. -->
+            @if(Auth::user())
+            <div id = "buttons">
+                <a href="/subjects">subjects</a><!-- These buttons need to be styled. -->
+            </div>
+            @endif
 
             <div id = "unimail">
                 <p1>Please sign up with your university email to access the forums</p1>

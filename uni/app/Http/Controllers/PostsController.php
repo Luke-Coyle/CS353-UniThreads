@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use App\User;
 use App\Post;
 use DB;
+use Session;
 
 
 class PostsController extends Controller
@@ -26,8 +27,17 @@ class PostsController extends Controller
     }
 
     public function cs210()
-    {   $posts=DB::select('SELECT * FROM posts WHERE module="cs210"');
-        return view('mods.cs210')->with('posts', $posts);
+    {   /*$posts=DB::select('SELECT * FROM posts WHERE module="cs210"');
+        $user_ids=DB::select('SELECT user_id FROM posts WHERE module="cs210"');
+        $userName();
+        $f = 0;
+        foreach($user_ids as $uid){
+            $i = $uid;
+            $userName[f]=DB::select('SELECT * FROM users WHERE id='.$i.'');
+            $f++;
+        }*/
+        $posts=DB::select('SELECT * FROM posts WHERE module="cs210"');
+        return view('mods.cs210')->with('posts', $posts);    //->with('userName',$userName);
     }
 
     public function cs320()
@@ -35,6 +45,14 @@ class PostsController extends Controller
         $posts=DB::select('SELECT * FROM posts WHERE module="cs320"');
         return view('mods.cs320')->with('posts', $posts);
     }
+
+    //generic type of view for all modules
+    public function genericModule()
+    {
+        $posts=DB::select('SELECT * FROM posts WHERE module="cs320"');
+        return view('mods.genericModule')->with('posts', $posts);
+    }
+
 
     public function cs357()
     {
@@ -84,6 +102,7 @@ class PostsController extends Controller
      */
     public function create()
     {
+        
        return view('posts.create');
     }
 
@@ -117,13 +136,17 @@ class PostsController extends Controller
         }
 
         $post=new Post;
+        $value = $request->session()->get('key');
         $post->title=$request->input('title');
-        $post->module=$request->input('module');
+        $post->module=         $request->input('module');
         $post->body=$request->input('body');
         $post->user_id=auth()->user()->id;
         $post->files=$filenamestore;
         $post->save();
         return redirect('/subjects')->with('success', 'Post Created');
+
+
+        Session::flash('success','The blog post was successfully saved');
     }
 
     /**
@@ -135,7 +158,6 @@ class PostsController extends Controller
     public function show($id)
     {
         $post =Post::find($id);
-        
         return view('posts.show')->with('post',$post);
     }
 

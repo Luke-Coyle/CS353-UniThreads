@@ -35,6 +35,9 @@ Route::get('/mt103', 'PostsController@mt103');
 Route::get('/mt201', 'PostsController@mt201');
 Route::get('/mt212', 'PostsController@mt212');
 
+Route::get('/genericModule', 'PostsController@genericModule');
+
+
 Route::resource('posts','PostsController'); //Namespaced under posts url   -- posts/create--- posts/update --- etc
 
 Auth::routes();

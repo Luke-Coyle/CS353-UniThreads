@@ -29,6 +29,7 @@
 			<tr>
 				<td><a href="/posts/{{$post->id}}">{{$post->title}}</a></td>
 				<td><a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a></td>
+				<td><a href="/posts/{{$post->id}}">{{$post->module}}</a></td>
 				<td>
 						{!!Form::open(['action'=>['PostsController@destroy', $post->id],'method'=>'POST','class'=> 'pull-right'])!!}
    						{{Form::hidden('_method', 'DELETE')}}

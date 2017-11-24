@@ -13,17 +13,20 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('stylesheets')
+    @yield('scripts')
 </head>
 <body>
     <div id="app">
         @include('inc.navbar')
+        @include('partials._messages')
         <div class = "container">
-        
-        @yield('content')
+            @yield('content')
         </div>
     </div>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    
 </body>
 </html>
