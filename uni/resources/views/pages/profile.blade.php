@@ -26,7 +26,7 @@
 	
 	<p>Your previous posts and questions.</p>
 	@if(count($posts)>0)
-	<table class="table table-striped">
+	<table id="table">
 		<tr>
 			<td>Title</td>
 			<td></td>
@@ -51,9 +51,10 @@
 @endif
 
 @if(count($comments)>0)
-	<table class="table table-striped">
+	<table id="table">
+	<h1>***********************Comments***********************</h1>
 		<tr>
-			<td>Comments</td>
+			<td></td>
 			<td></td>
 			<td></td>
 		</tr>

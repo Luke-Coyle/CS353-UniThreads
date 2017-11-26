@@ -23,7 +23,7 @@
             <tr><th><h2><strong>Subjects</strong></h2><!-- Title to show what page you are on --></th></tr>
             <tr><td><a href='/english'>English</a></td></tr>
             <tr><td><a href='/maths'>Maths</a></td></tr>
-            <tr><td><a href='/compuerscience'>Computer Science</a></td></tr>
+            <tr><td><a href='/computerscience'>Computer Science</a></td></tr>
             </tbody>
         </table>
  
