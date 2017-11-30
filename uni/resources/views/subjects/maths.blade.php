@@ -4,9 +4,10 @@
 <head>
 <title>UNI-Threads</title>
 </head>
-<div>
-		<h1>Maths</h1>
+<div id ="title-card" style="padding-bottom:2%">
+	<div style="padding-bottom:2%">	<h1>Maths</h1></div>
         <a href="/subjects">Go Back to Subjects</a>
+		<div>
 				<form action="/search" method="POST" role="search">
     {{ csrf_field() }}
     <div class="input-group">
@@ -19,24 +20,22 @@
     </div>
 </form>
 </div>
+</div>
 
 <div id="content">
 	
 	
-	<h2>Modules</h2><!-- Title to show what page you are on -->
 	
-<div id="mod">
-		<a href=/mt103>MT103: Calculus 1</a>
-		
-	</div>
-	<br>
-	<div id="mod">
-		<a href=/mt201>MT201: Calculus 3</a>
-	</div>
-	<br>
-	<div id="mod">
-		<a href=/mt212>MT212 Linear Algebra 2</a>
-</div>
+	
+<div id="table">
+        <table> <thead><tbody>
+            <tr><th><h2>Modules</h2><!-- Title to show what page you are on --></th></tr>
+            <tr><td><a href=/mt103>MT103: Calculus</a> </td></tr>
+            <tr><td><a href=/mt201>MT201: Calculus</a></td></tr>
+            <tr><td><a href=/mt212>MT212: Linear Algebra</a></td></tr>
+            </tbody>
+        </table>
+    </div>
 
 
 

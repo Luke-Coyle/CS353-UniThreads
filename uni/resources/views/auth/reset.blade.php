@@ -1,5 +1,5 @@
 <!-- resources/views/auth/reset.blade.php -->
-
+<div style="padding-top:10%">
 <form method="POST" action="/password/reset">
     {!! csrf_field() !!}
     <input type="hidden" name="token" value="{{ $token }}">
@@ -33,3 +33,4 @@
         </button>
     </div>
 </form>
+</div>

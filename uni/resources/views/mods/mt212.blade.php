@@ -4,7 +4,7 @@
 <head>
 <title>UNI-Threads</title>
 </head>
-
+<div id="title-card">
 		<h1>MT212: Linear Algebra</h1>
         <a href="/maths">Go Back to Maths</a>
 		<form action="/search" method="POST" role="search">
@@ -17,6 +17,7 @@
             </button>
         </span>
     </div>
+	</div>
 </form>
 				<hr>
 
@@ -25,7 +26,7 @@
 
 
 <div id="content">
-
+<div id="post">
 		<hr>
 		@if(count($posts)>0)
 	@foreach($posts as $post)
@@ -33,7 +34,7 @@
 			<div class="well">
 			<div class="row">
 				<div class="col-md-4 col-sm-4">
-					<img style="width:100%" src="/storage/files/{{$post->files}}">
+					<img style="width:50%" src="/storage/files/{{$post->files}}">
 				</div>
 
 				<div class="col-md-4 col-sm-4">
@@ -48,6 +49,7 @@
 @endif
 	
 
+</div>
 </div>
 </body>
 @endsection

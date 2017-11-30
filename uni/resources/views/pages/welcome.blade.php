@@ -87,7 +87,7 @@ table {
 <body>
         
 
-        <div id = "container">
+        <div id = "container" style="padding-left: 4%">
             <div id = "login">
                 <h1>Welcome to Uni-Threads!</h1>  <!-- I imagine we would want both of these lines centered for this page -->
                 <h3>A private forum for university students to learn from and help each other<h3>

@@ -37,11 +37,14 @@
 				<td><a href="/posts/{{$post->id}}">{{$post->title}}</a></td>
 				<td><a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a></td>
 				<td>
-						{!!Form::open(['action'=>['PostsController@destroy', $post->id],'method'=>'POST','class'=> 'pull-right'])!!}
+						{!!Form::open(['action'=>['PostsController@destroy', $post->id],'method'=>'POST','class'=> 'pull-left'])!!}
    						{{Form::hidden('_method', 'DELETE')}}
    						{{Form::submit('Delete', ['class'=>'btn btn-danger'])}}
 						{!!Form::close()!!}
+						
 				</td>
+				<td><a href="/posts/{{$post->module}}" >{{$post->module}}</a></td>
+				
 			</tr>
 		@endforeach
 	</table>
@@ -52,7 +55,7 @@
 
 @if(count($comments)>0)
 	<table id="table">
-	<h1>***********************Comments***********************</h1>
+	<div id="reg"><h1>***********************Comments***********************</h1></div>
 		<tr>
 			<td></td>
 			<td></td>

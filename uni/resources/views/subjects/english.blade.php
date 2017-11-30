@@ -3,12 +3,11 @@
 @section('content')
 <head>
 <title>UNI-Threads</title>
-
 </head>
-<div>
-	<!-- <p>log out  view profile</p>-->
-		<h1>English</h1>
+<div id ="title-card" style="padding-bottom:2%">
+	<div style="padding-bottom:2%">	<h1>English</h1></div>
         <a href="/subjects">Go Back to Subjects</a>
+		<div>
 				<form action="/search" method="POST" role="search">
     {{ csrf_field() }}
     <div class="input-group">
@@ -20,27 +19,24 @@
         </span>
     </div>
 </form>
-          
+</div>
 </div>
 
 <div id="content">
 	
 	
-	<h2>Modules</h2><!-- Title to show what page you are on -->
 	
-	<div id="mod">
-		<a href="/en101">EN101: Foundation English</a>
-		
-	</div>
-	<br>
-	<div id="mod">
-		<a href=/en203>EN203: Literary Forms</a>
-	</div>
-	<br>
-	<div id="mod">
-		<a href=/en260>EN260: Classic Literature</a>
-	</div>
-		
+	
+<div id="table">
+        <table> <thead><tbody>
+            <tr><th><h2>Modules</h2><!-- Title to show what page you are on --></th></tr>
+            <tr><td><a href=/en101>EN101: Foundational English</a> </td></tr>
+            <tr><td><a href=/en203>EN203: Literary Forms</a></td></tr>
+            <tr><td><a herf =/en260>EN260: Great Books</a></td></tr>
+            </tbody>
+        </table>
+    </div>
+
 
 
 
