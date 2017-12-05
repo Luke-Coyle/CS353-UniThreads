@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Notification;
+use App\Notifications\NewPost;
 use App\User;
 use App\Post;
 use DB;
@@ -102,7 +104,7 @@ class PostsController extends Controller
             'files' => 'image|nullable'
 
         ]);
-
+        $filenamestore="";
         if($request->hasFile('files')){
             $filenameext=$request->file('files')->getClientOriginalName();
             $filename=pathinfo($filenameext, PATHINFO_FILENAME);
@@ -123,6 +125,12 @@ class PostsController extends Controller
         $post->user_id=auth()->user()->id;
         $post->files=$filenamestore;
         $post->save();
+
+        //No flash notification ???
+        
+
+       // Notification::route('mail','garyjh@gmail.com')->notify(new NewPost($post));
+
         return redirect('/subjects')->with('success', 'Post Created');
     }
 

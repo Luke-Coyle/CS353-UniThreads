@@ -13,7 +13,8 @@
             </div> 
             <div class="form-group">
                 {{Form::label('module', 'Module')}}
-                {{Form::text('module', '', ['class' => 'form-control', 'placeholder'=>'Please put module code here e.g. MT103 Calculus 1 should be written as: mt103'])}}
+                <!--{{Form::select('module',['cs210'=>'CS210', 'cs320'=>'CS320', 'cs357'=>'CS357','en101'=>'EN101','en203'=>'EN203','en260'=>'EN260','mt103'=>'MT103','mt201'=>'MT201','mt212'=>'MT212'])}} -->
+                {{Form::text('module', '', ['class' => 'form-control', 'placeholder'=>'Module'])}}
             </div> 
             <div class="form-group">
                 {{Form::label('body', 'Body')}}

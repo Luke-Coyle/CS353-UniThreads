@@ -68,7 +68,7 @@ Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm')->
 Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');	  //Step 2
 Route::post('password/reset', 'Auth\PasswordController@reset');					        //Step 4
 
-
+Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 
 
 Route::prefix('admin')->group(function(){
@@ -93,3 +93,15 @@ Route::any('/search',function(){
       return view('results')->withDetails($posts)->withQuery ( $q );
   else return view ('results')->withMessage('No Details found. Try to search again !');
 });
+
+
+Route::group(['middleware' => 'auth'], function () {
+  Route::get('users', 'UsersController@index')->name('users');
+  Route::post('users/{user}/follow', 'UsersController@follow')->name('follow');
+  Route::delete('users/{user}/unfollow', 'UsersController@unfollow')->name('unfollow');
+});
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

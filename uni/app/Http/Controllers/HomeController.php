@@ -1,10 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\User;
-use DB;
-use Illuminate\Http\Request;
 
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -25,9 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user_id = auth()->user()->id;
-        $user=User::find($user_id);
-        return view('pages.profile')->with('posts', $user->posts)->with('comments', $user->comments);
-        
+        return view('home');
     }
 }
