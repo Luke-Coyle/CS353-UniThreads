@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\User;
 use App\Post;
+use Notification;
+use App\Notifications\NewPost;
 use DB;
 
 
@@ -116,13 +118,15 @@ class PostsController extends Controller
         
         }
 
-        $post=new Post;
+        $post=new Post();
         $post->title=$request->input('title');
         $post->module=$request->input('module');
         $post->body=$request->input('body');
         $post->user_id=auth()->user()->id;
         $post->files=$filenamestore;
         $post->save();
+
+        Notification::route('mail', 'admin@laravel.dev')->notify(new NewPost($post)); //Will send email to admin for inspection
         return redirect('/subjects')->with('success', 'Post Created');
     }
 
