@@ -129,7 +129,7 @@ class PostsController extends Controller
         //No flash notification ???
         
 
-        Notification::route('mail','garyjh126@gmail.com')->notify(new NewPost($post));
+        Notification::route('mail','gary.harney.2016@mumail.ie')->notify(new NewPost($post));
 
         return redirect('/subjects')->with('success', 'Post Created');
     }
