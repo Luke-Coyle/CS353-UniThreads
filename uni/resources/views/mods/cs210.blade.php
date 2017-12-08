@@ -21,7 +21,8 @@
 
 		<hr>
 
-		<a href='/posts/create' class='btn btn-default'> Create post</a>
+		<!--<a href='/posts/create' class='btn btn-default'> Create post</a>-->
+		{{link_to_action('PostsController@create', 'Create Post', array('mod'=>'cs210'), array('class' => 'btn btn-default'))}}
 			
 </div>
 
