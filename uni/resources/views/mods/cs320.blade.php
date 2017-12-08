@@ -20,7 +20,9 @@
 </form>
 				<hr>
 
-		<a href='/posts/create' class='btn btn-default'> Create post</a>
+		<!--<a href='/posts/create' class='btn btn-default'> Create post</a>-->
+		{{link_to_action('PostsController@create', 'CreatePost', array('mod'=>'cs320'), array('class' => 'btn'))}}
+		
 </div>
 <h1>Post List, Have something to share? Share it here!</h1>
 <div id="content">
