@@ -4,7 +4,7 @@
 <head>
 <title>UNI-Threads</title>
 </head>
-<div>
+<div id="title-card">
 		<h1>CS210: Data Structures & Algorithms</h1>
         <a href="/computerscience">Go Back to Computer Science</a>
 		<form action="/search" method="POST" role="search">
@@ -29,6 +29,7 @@
 
 <div id="content">
 		<hr>
+<div id="post">
 @if(count($posts)>0)
 	@foreach($posts as $post)
 		<div class="well">
@@ -40,7 +41,7 @@
 				<div class="col-md-4 col-sm-4">
 						<a href="/posts/{{$post->id}}">{{$post->title}}</a>   <!--Where is this $post coming from? Not from PagesController@cs210-->
 						<hr><small>Written on {{$post->created_at}}</small>	<!--Where is this $post coming from? Not from PagesController@cs210-->
-						<small><strong>By {{$post->created_at}}</strong></small>
+						
 				</div>	
 			</div>
 		</div>
@@ -48,6 +49,7 @@
 		@else
 			<p>no posts</p>
 		@endif
+		</div>
 			
 
 		</div>

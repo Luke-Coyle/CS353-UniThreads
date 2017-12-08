@@ -21,6 +21,13 @@
     height: 100%;
 }
 
+#reg{
+
+    font-family:monospace;
+    opacity:0.7;
+    color:black;
+}
+
 body{
     background-image: url(https://thebestscreenprinting.com/wp-content/uploads/2015/11/bgimg3.jpg);
     background-repeat: no-repeat;
@@ -34,7 +41,7 @@ body{
     width: auto;
     min-height: 300px;
 	background-color: transparent;
-	padding-bottom: 10px;
+	padding-bottom: 2px;
 	padding-top: 20%;
 	padding-left: 4%;
 	margin-top: -2%;

@@ -4,7 +4,7 @@
 <head>
 <title>UNI-Threads</title>
 </head>
-<div>
+<div id="title-card">
 		<h1>CS320: Computer Networks</h1>
         <a href="/computerscience">Go Back to Computer Science</a>
 		<form action="/search" method="POST" role="search">
@@ -20,17 +20,20 @@
 </form>
 				<hr>
 
-		<a href='/posts/create' class='btn btn-default'> Create post</a>
+		<!--<a href='/posts/create' class='btn btn-default'> Create post</a>-->
+		{{link_to_action('PostsController@create', 'CreatePost', array('mod'=>'cs320'), array('class' => 'btn'))}}
+		
 </div>
 <h1>Post List, Have something to share? Share it here!</h1>
 <div id="content">
 	<hr>
+	<div id="post">
 		@if(count($posts)>0)
 	@foreach($posts as $post)
 		<div class="well">
 			<div class="row">
 				<div class="col-md-4 col-sm-4">
-					<img style="width:100%" src="/storage/files/{{$post->files}}">
+					<img style="width:50%" src="/storage/files/{{$post->files}}">
 				</div>
 
 				<div class="col-md-4 col-sm-4">
@@ -43,7 +46,7 @@
 @else
 	<p>no posts</p>
 @endif
-
+</div>
 </div>
 </body>
 @endsection

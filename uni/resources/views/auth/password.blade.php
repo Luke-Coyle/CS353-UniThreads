@@ -1,5 +1,5 @@
 <!-- resources/views/auth/password.blade.php -->
-
+<div style="padding-top:10%">
 <form method="POST" action="/password/email">
     {!! csrf_field() !!}
 
@@ -22,3 +22,4 @@
         </button>
     </div>
 </form>
+</div>

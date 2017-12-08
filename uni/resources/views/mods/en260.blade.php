@@ -4,7 +4,7 @@
 <head>
 <title>UNI-Threads</title>
 </head>
-<div>
+<div id="title-card">
 		<h1>EN260: Classic Literature</h1>
         <a href="/english">Go Back to English</a>
 		<form action="/search" method="POST" role="search">
@@ -24,6 +24,7 @@
 </div>
 <h1>Post List, Have something to share? Share it here!</h1>
 <div id="content">
+<div id="post">
 		<hr>
 		@if(count($posts)>0)
 	@foreach($posts as $post)
@@ -31,7 +32,7 @@
 			<div class="well">
 			<div class="row">
 				<div class="col-md-4 col-sm-4">
-					<img style="width:100%" src="/storage/files/{{$post->files}}">
+					<img style="width:50%" src="/storage/files/{{$post->files}}">
 				</div>
 
 				<div class="col-md-4 col-sm-4">
@@ -45,7 +46,7 @@
 	<p>no posts</p>
 @endif
 	
-
+</div>
 </div>
 </body>
 @endsection
