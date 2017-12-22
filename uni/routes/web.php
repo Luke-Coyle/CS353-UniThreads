@@ -68,6 +68,7 @@ Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm')->
 Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');	  //Step 2
 Route::post('password/reset', 'Auth\PasswordController@reset');					        //Step 4
 
+Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 
 
 
@@ -90,6 +91,10 @@ Route::any('/search',function(){
   $q = Input::get ( 'q' );
   $posts = Post::where('title','LIKE','%'.$q.'%')->orWhere('body','LIKE','%'.$q.'%')->orWhere('module','LIKE','%'.$q.'%')->get();
   if(count($posts) > 0)
+  {
       return view('results')->withDetails($posts)->withQuery ( $q );
-  else return view ('results')->withMessage('No Details found. Try to search again !');
+  }
+  else{
+   return view ('noresults')->withMessage('No Details found. Try to search again !');
+  }
 });

@@ -13,8 +13,20 @@
 <body>
 <div id="title-card">
 	<h1>Welcome to UNI-Threads</h1>
+<br> <br>
+				<form action="/search" method="POST" role="search">
+    {{ csrf_field() }}
+    <div class="input-group">
+        <input type="text" class="form-control" name="q"
+            placeholder="Search posts"> <span class="input-group-btn">
+            <button type="submit" class="btn btn-default">
+             <span> Search </span>	
+            </button>
+        </span>
+    </div>
+</form>
 
-	<!-- <p>log out  view profile</p>-->
+
 	
 </div>
 
