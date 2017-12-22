@@ -6,9 +6,18 @@
 <head>
 <title>UNI-Threads</title>
 </head>
-<div>
+
+
+
+
 		<!--<h1>This is your profile page</h1>-->
-        <a href="/subjects">Go Back to Subjects</a>
+       <div id="title-card"> 
+	   <h1> Profile </h1>
+	   
+	   <a href="/subjects">Go Back to Subjects</a>
+	  
+	   
+	
 <form action="/search" method="POST" role="search">
     {{ csrf_field() }}
     <div class="input-group">
@@ -20,15 +29,18 @@
         </span>
     </div>
 </form>
-</div>
-
+<br><br>
+<h3>Your previous posts and comments:</h3>
+ </div>
+   
 <div id="content">
 	
-	<p>Your previous posts and questions.</p>
+	
 	@if(count($posts)>0)
 	<table id="table">
+
 		<tr>
-			<td>Title</td>
+			<td>Title of Post</td>
 			<td></td>
 			<td></td>
 		</tr>
@@ -43,19 +55,19 @@
 						{!!Form::close()!!}
 						
 				</td>
-				<td><a href="/posts/{{$post->module}}" >{{$post->module}}</a></td>
+				<td><a href="{{$post->module}}" >{{$post->module}}</a></td>
 				
 			</tr>
 		@endforeach
 	</table>
 @else
-<p> You have no posts </p>
+<div id=reg><p> You have no posts </p></div>
 
 @endif
 
 @if(count($comments)>0)
 	<table id="table">
-	<div id="reg"><h1>***********************Comments***********************</h1></div>
+	<div id="reg"><h2>***********************Comments***********************</h2></div>
 		<tr>
 			<td></td>
 			<td></td>
@@ -80,11 +92,13 @@
 
 	
 @else
-<p> You have no posts </p>
+<div id=reg><p> You have no comments </p></div>
 
 @endif
 
 
+</div>
+<div style="padding-bottom:5%">
 </div>
 </body>
 @endsection

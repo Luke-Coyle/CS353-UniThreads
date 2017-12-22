@@ -28,12 +28,42 @@
     color:black;
 }
 
+#pbody{
+    font-family:monospace;
+    opacity:0.7;
+    color:black;
+    width:60%;
+    float:right;
+
+}
+
+#cbody{
+    font-family:monospace;
+    opacity:0.7;
+    color:black;
+    width:60%;
+
+}
+
+#post{
+font-family:monospace;
+    opacity:0.9;
+    color:black;
+    font-size:150%;
+
+}
+
 body{
     background-image: url(https://thebestscreenprinting.com/wp-content/uploads/2015/11/bgimg3.jpg);
     background-repeat: no-repeat;
+    background-attachment: fixed;
     position: absolute;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     width: 100%;
-    height: 100%;
+    height: 100%x;
 }
 
 #title-card { 
@@ -42,10 +72,34 @@ body{
     min-height: 300px;
 	background-color: transparent;
 	padding-bottom: 2px;
-	padding-top: 20%;
+	padding-top: 10%;
 	padding-left: 4%;
 	margin-top: -2%;
 	padding-right: 2%;
+}
+
+#title-cardA { 
+    font-family: monospace;
+    width: auto;
+    min-height: 300px;
+	background-color: transparent;
+
+	padding-top: 10%;
+	padding-left: 4%;
+
+	padding-right: 2%;
+}
+
+#image{
+    float:left;
+  width:40%;
+   padding-bottom:3%;
+}
+
+#postbody{
+
+  
+   
 }
 
 #title-card h1{
@@ -104,5 +158,9 @@ table {
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'article-ckeditor' );
+    </script>
 </body>
 </html>
